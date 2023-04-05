@@ -5,7 +5,6 @@ fc = 16;   % Hz
 
 opt = bodeoptions('cstprefs');
 opt.FreqUnits = 'Hz';
-opt.Title.String = 'Notch Filter';
 opt.Grid = 'on';
 opt.XLim = [5 50];
 
