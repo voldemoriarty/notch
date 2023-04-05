@@ -1,0 +1,14 @@
+function notch_filt = design_notch(fm, gamma, zeta)
+%design_notch   design a 2nd order notch filter in continous time
+%   fm:     notch freq in Hz
+%   gamma:  notch depth in absolute units (min gain)
+%   zeta:   notch damping (width of notch)
+
+    fmr = fm * 2 * pi;
+    
+    n = [1 2*zeta*fmr*gamma fmr*fmr];
+    d = [1 2*zeta*fmr fmr*fmr];
+    
+    notch_filt = tf(n, d);
+end
+
