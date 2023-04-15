@@ -25,10 +25,10 @@ function notch_filt = design_notch_bw(fm, gamma, bw, varargin)
     );
     
     notch_filt = design_notch(fm, gamma, zeta);
-    
-    fprintf('Optimal zeta: %.3f\n', zeta);
-    
+        
     if nargout == 0
+        fprintf('Optimal zeta: %.3f\n', zeta);
+        
         opt = bodeoptions('cstprefs');
         opt.FreqUnits = 'Hz';
         opt.Title.String = 'Notch Filter';
