@@ -3,7 +3,7 @@ function notch_filt = design_notch_bw(fm, gamma, bw, varargin)
 %certain bandwidth
 %   fm:     notch freq in Hz
 %   gamma:  notch depth in absolute units (min gain)
-%   bw:     notch bandwidth (width of region where gain < bwg
+%   bw:     notch bandwidth (width of region where gain < bwg)
 %   bwg:    bandwidth gain (default -3db)
 %Run without output args to plot the notch
 
