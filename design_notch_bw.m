@@ -13,15 +13,11 @@ function notch_filt = design_notch_bw(fm, gamma, bw, varargin)
     end
     
     tgt_f = (fm - bw/2) * 2*pi;  % rad/s
-    
-    opt = optimset('fmincon');
-    opt.Display = 'off';
-    
+        
     zeta = optimize( ...
         @(z) cost(design_notch(fm,gamma,z), tgt_f, bwg), ...
         2.5,    ...
-        [0,5],  ...
-        opt     ...
+        [0,5]   ...
     );
     
     notch_filt = design_notch(fm, gamma, zeta);
@@ -37,7 +33,9 @@ function notch_filt = design_notch_bw(fm, gamma, bw, varargin)
     end
 end
 
-function x = optimize(fun, x0, bounds, opt)
+function x = optimize(fun, x0, bounds)
+    opt = optimset('fmincon');
+    opt.Display = 'off';
     x = fmincon(fun, x0, [], [], [], [], bounds(1), bounds(2), [], opt);
 end
 
